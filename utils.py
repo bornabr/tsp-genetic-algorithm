@@ -1,4 +1,5 @@
 import random
+import tsplib95
 
 from cycle import Cycle
 
@@ -110,3 +111,17 @@ def generate_genration(epoch, previous_population, tournament_size, parents_size
 	      eval_[0], "\tBest fitness:", eval_[1], "\tLeast Distance:", eval_[2])
 	
 	return next_population
+
+
+def TSP_GA(filename, n_generations, population_size, tournament_size, parents_size, mutation_rate, elite_size, problem=None):
+	if problem is None:
+		problem = tsplib95.load('./problems/' + filename)
+
+	population = initial_population(problem, population_size)
+
+	for i in range(n_generations):
+		population = generate_genration(
+			i, population, tournament_size, parents_size, mutation_rate, elite_size)
+
+	print('Best Answer:')
+	print(population[0].permutation, population[0].distance)

@@ -1,48 +1,14 @@
-import tsplib95
-
-from utils import initial_population
-from utils import generate_genration
-
-
-def TSP_GA(filename, n_generations, population_size, tournament_size, parents_size, mutation_rate, elite_size):
-	problem = tsplib95.load('./problems/' + filename)
-	
-	population = initial_population(problem, population_size)
-	
-	for i in range(n_generations):
-		population = generate_genration(
-			i, population, tournament_size, parents_size, mutation_rate, elite_size)
-	
-	print([x.distance for x in population])
-	
-	print('Best Answer:')
-	print(population[0].permutation, population[0].distance)
+from loader import Problem
+from utils import TSP_GA
 
 def bayg29():
 	population_size = 100
 
 	tournament_size = 90
 
-	parents_size = 40
+	parents_size = 60
 
-	elite_size = 20
-
-	mutation_rate = 0.01
-
-	n_generations = 100
-
-	TSP_GA('bayg29.tsp', n_generations, population_size, tournament_size,
-	       parents_size, mutation_rate, elite_size)
-
-
-def bayg29():
-	population_size = 100
-
-	tournament_size = 90
-
-	parents_size = 40
-
-	elite_size = 20
+	elite_size = 30
 
 	mutation_rate = 0.01
 
@@ -53,37 +19,41 @@ def bayg29():
 
 
 def gr229():
-	population_size = 100
+	population_size = 200
 
-	tournament_size = 90
+	tournament_size = 160
 
-	parents_size = 70
+	parents_size = 90
 
-	elite_size = 30
+	elite_size = 40
 
-	mutation_rate = 0.05
+	mutation_rate = 0.01
 
-	n_generations = 100
+	n_generations = 10000
+
+	problem = Problem('./problems/gr229.tsp')
 
 	TSP_GA('gr229.tsp', n_generations, population_size, tournament_size,
-	       parents_size, mutation_rate, elite_size)
+	       parents_size, mutation_rate, elite_size, problem)
 
 
 def pr1002():
-	population_size = 100
+	population_size = 200
 
-	tournament_size = 90
+	tournament_size = 140
 
-	parents_size = 50
+	parents_size = 100
 
-	elite_size = 35
+	elite_size = 80
 
-	mutation_rate = 0.05
+	mutation_rate = 0.1
 
 	n_generations = 150
 
+	problem = Problem('./problems/pr1002.tsp')
+
 	TSP_GA('pr1002.tsp', n_generations, population_size, tournament_size,
-	       parents_size, mutation_rate, elite_size)
+	       parents_size, mutation_rate, elite_size, problem)
 
 # bayg29()
 
