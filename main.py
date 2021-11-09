@@ -4,15 +4,15 @@ from utils import TSP_GA
 def bayg29():
 	population_size = 100
 
-	tournament_size = 90
+	tournament_size = 80
 
-	parents_size = 60
+	parents_size = 10
 
-	elite_size = 30
+	elite_size = 5
 
 	mutation_rate = 0.01
 
-	n_generations = 100
+	n_generations = 1000
 
 	TSP_GA('bayg29.tsp', n_generations, population_size, tournament_size,
 	       parents_size, mutation_rate, elite_size)
@@ -23,11 +23,11 @@ def gr229():
 
 	tournament_size = 160
 
-	parents_size = 90
+	parents_size = 10
 
-	elite_size = 40
+	elite_size = 5
 
-	mutation_rate = 0.01
+	mutation_rate = 0.005
 
 	n_generations = 10000
 
@@ -42,13 +42,13 @@ def pr1002():
 
 	tournament_size = 140
 
-	parents_size = 100
+	parents_size = 10
 
-	elite_size = 80
+	elite_size = 5
 
-	mutation_rate = 0.1
+	mutation_rate = 0.001
 
-	n_generations = 150
+	n_generations = 1000
 
 	problem = Problem('./problems/pr1002.tsp')
 
